@@ -14,10 +14,10 @@ public class Deck {
         this.complete = false;
     }
 
-    private int getNumberOfCardsRemaining() {
+    public int getNumberOfCardsRemaining() {
         return this.remainingCards.size();
     }
-    private void fillDeck() {
+    protected void fillDeck() {
         for (CardShape shape: CardShape.values()) {
             for (CardValue value: CardValue.values()) {
                 Card card = new Card(shape, value);
@@ -27,11 +27,11 @@ public class Deck {
         this.complete = true;
     }
 
-    private void shuffleDeck() {
+    protected void shuffleDeck() {
         Collections.shuffle(this.remainingCards);
     }
 
-    private Card deal() {
+    public Card deal() {
         Card card = this.remainingCards.get(0);
         this.remainingCards.remove(0);
         return card;

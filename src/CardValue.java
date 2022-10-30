@@ -1,5 +1,4 @@
 public enum CardValue {
-    ONE,
     TWO,
     THREE,
     FOUR,
