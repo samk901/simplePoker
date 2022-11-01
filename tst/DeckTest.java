@@ -1,7 +1,16 @@
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class DeckTest {
+
+    public Deck testDeck;
+
+    @BeforeEach
+    public void setup() {
+        testDeck = new Deck();
+    }
 
     @Test
     public void testEmptyDeck() {
@@ -11,12 +20,12 @@ public class DeckTest {
 
     @Test
     public void testFilledDeck() {
-        Deck testDeck = new Deck();
         testDeck.fillDeck();
         Assertions.assertEquals(52, testDeck.getNumberOfCardsRemaining());
     }
 
     @Test
+    @SneakyThrows
     public void testShuffledDeck() {
         Deck unshuffledDeck = new Deck();
         unshuffledDeck.fillDeck();
@@ -29,8 +38,15 @@ public class DeckTest {
     }
 
     @Test
-    public void testDealSingleCard() {
+    @SneakyThrows
+    public void dealThrowsDeckException() {
+        Assertions.assertThrows(DeckException.class, () -> testDeck.deal());
+    }
 
+    @Test
+    @SneakyThrows
+    public void testDealSingleCard() {
+        testDeck.deal();
     }
 
     @Test

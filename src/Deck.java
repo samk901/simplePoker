@@ -31,7 +31,12 @@ public class Deck {
         Collections.shuffle(this.remainingCards);
     }
 
-    public Card deal() {
+    public Card deal() throws DeckException {
+
+        if (this.remainingCards.size() == 0) {
+            throw new DeckException("Deck is empty");
+        }
+
         Card card = this.remainingCards.get(0);
         this.remainingCards.remove(0);
         return card;
