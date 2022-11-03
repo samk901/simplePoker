@@ -1,0 +1,13 @@
+Plan of Attack
+
+1) Finish card implementation and testing
+2) Implement Players --> Hands
+3) Implement game logic
+    a) evaluate and compare hands (end stage)
+    b) Hold'em logic
+    c) Betting logic
+4) Implement textual playability
+5) How to preserve game state and records
+6) Make playable over the web
+7) GUI interface??
+
