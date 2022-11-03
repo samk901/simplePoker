@@ -1,6 +1,6 @@
 public enum CardShape {
-    CLUB,
-    SPADE,
-    DIAMOND,
-    HEART
+    CLUBS,
+    SPADES,
+    DIAMONDS,
+    HEARTS
 }

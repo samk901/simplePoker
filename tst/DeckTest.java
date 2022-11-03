@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class DeckTest {
 
-    public Deck testDeck;
+    private Deck testDeck;
 
     @BeforeEach
     public void setup() {
@@ -46,16 +46,28 @@ public class DeckTest {
     @Test
     @SneakyThrows
     public void testDealSingleCard() {
-        testDeck.deal();
+        testDeck.fillDeck();
+        Card card = testDeck.deal();
+        Assertions.assertEquals(51, testDeck.getNumberOfCardsRemaining());
+        Assertions.assertInstanceOf(Card.class, card);
     }
 
     @Test
+    @SneakyThrows
     public void testDealMultipleCards() {
+        testDeck.fillDeck();
+        testDeck.shuffleDeck();
+        Card card1 = testDeck.deal();
+        Card card2 = testDeck.deal();
+        Card card3 = testDeck.deal();
+        Card card4 = testDeck.deal();
+        Card card5 = testDeck.deal();
 
-    }
-
-    @Test
-    public void testDealAllCards() {
-
+        Assertions.assertEquals(47, testDeck.getNumberOfCardsRemaining());
+//        System.out.println("Card1 is " + card1.toString());
+//        System.out.println("Card2 is " + card2.toString());
+//        System.out.println("Card3 is " + card3.toString());
+//        System.out.println("Card4 is " + card4.toString());
+//        System.out.println("Card5 is " + card5.toString());
     }
 }

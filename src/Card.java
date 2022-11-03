@@ -4,7 +4,7 @@ public class Card {
 
     private final CardShape shape;
     private final CardValue value;
-    private final HashMap<String, Integer> valueHash = new Utility().getValueHash();
+    private final HashMap<String, Integer> valueHash = new Utility().getSingleCardValueHash();
 
     public Card(CardShape shape, CardValue value) {
         this.shape = shape;
