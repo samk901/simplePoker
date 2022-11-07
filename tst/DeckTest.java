@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 public class DeckTest {
 
     private Deck testDeck;
-
     @BeforeEach
     public void setup() {
         testDeck = new Deck();
@@ -69,5 +68,20 @@ public class DeckTest {
 //        System.out.println("Card3 is " + card3.toString());
 //        System.out.println("Card4 is " + card4.toString());
 //        System.out.println("Card5 is " + card5.toString());
+    }
+
+    @Test
+    @SneakyThrows
+    public void testBurnCard() {
+        testDeck.fillDeck();
+        testDeck.burn();
+        Assertions.assertEquals(51, this.testDeck.getNumberOfCardsRemaining());
+        testDeck.burn();
+        Assertions.assertEquals(50, this.testDeck.getNumberOfCardsRemaining());
+    }
+
+    @Test
+    public void testBurnCardThrowsDeckException() {
+        Assertions.assertThrows(DeckException.class, () -> testDeck.burn());
     }
 }

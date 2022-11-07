@@ -5,13 +5,13 @@ import java.util.List;
 public class Deck {
 
     private List<Card> remainingCards;
+    private List<Card> burnPile;
     private boolean shuffled;
-    private boolean complete;
 
     public Deck() {
         this.remainingCards = new ArrayList<Card>();
+        this.burnPile = new ArrayList<Card>();
         this.shuffled = false;
-        this.complete = false;
     }
 
     public int getNumberOfCardsRemaining() {
@@ -24,7 +24,6 @@ public class Deck {
                 this.remainingCards.add(card);
             }
         }
-        this.complete = true;
     }
 
     protected void shuffleDeck() {
@@ -42,5 +41,18 @@ public class Deck {
         return card;
     }
 
+    public void burn() throws DeckException {
+        if (this.remainingCards.size() == 0) {
+            throw new DeckException("Deck is empty");
+        }
+
+        Card card = this.remainingCards.get(0);
+        this.burnPile.add(card);
+        this.remainingCards.remove(0);
+    }
+
+    public List<Card> getRemainingCards() {
+        return this.remainingCards;
+    }
 
 }

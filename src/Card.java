@@ -26,5 +26,13 @@ public class Card {
         }
     }
 
+    public CardShape getCardShape() {
+        return this.shape;
+    }
+
+    public CardValue getCardValue() {
+        return this.value;
+    }
+
 
 }
